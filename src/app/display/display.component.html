@@ -1,0 +1,19 @@
+<table class="table table-hover" *ngIf="coins!= 0">
+    <thead>
+        <tr>
+            <td>Coin Name</td>
+            <td>Coin Price</td>
+            <td>Coin Properties</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let coin of coins | async">
+            <td>{{ coin.name }}</td>
+            <td>{{ coin.price }}</td>
+            <td>
+                <div *ngFor="let item of coin.properties | keyvalue">
+                    {{item.key}}: {{(item.value.namePrice)?(item.value.namePrice): (item.value.priceName)}}
+                </div>
+            </td>
+        </tr>
+    </tbody>
